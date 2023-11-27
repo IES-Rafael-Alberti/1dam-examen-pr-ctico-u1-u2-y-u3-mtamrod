@@ -114,7 +114,10 @@ def inicializar_juego() -> tuple:
     """
     Inicializa el juego, mostrando el mapa y la posición del jugador.
     :return: El mapa y la posición del jugador.
+    :param posicion_jugador: la posicion actual del jugador
+    :param mapa: mapa de la isla
     """
+    
     posicion_jugador = posicion_inicial_del_jugador()
     mapa = generar_mapa()
     while mapa[posicion_jugador[FILAS]][posicion_jugador[COLUMNAS]] == CELDA_TESORO:
@@ -140,6 +143,8 @@ def generar_mapa() -> list:
         - v: indica que el tesoro esta una o mas filas abajo.
 
     Genera mapas que puede que no tengan camino a la solución.
+    :param opciones: Las opciones de casilla
+    :param tesoro x/y: posicion tesoro
     :return: El mapa generado.
     """
 
@@ -209,6 +214,8 @@ def pedir_movimiento(mapa: list) -> str:
     """
     Pide al jugador su próximo movimiento y devuelve las coordenadas de desplazamiento.
     return: el movimiento del jugador
+    :param movimiento: input del jugador (segun la letra es un movimiento del diccionario movimientos)
+    :param entrada_correcta: Su funcion es dejar o no entrar en el bucle while 
     """
     entrada_correcta = False
 
@@ -279,14 +286,12 @@ def imprimir_mapa(mapa: list):
     """
     Imprime el mapa.
     :param mapa: El mapa a imprimir.
+    :param columna/fila: Las filas y/o columnas del mapa
     """
     for fila in mapa:
         print (fila)
         for columna in mapa:
             print (columna)
-            
-    #notfixed
-
 
 def muestra_resultado_del_movimiento(resultado: int, nueva_posicion: tuple, mapa: list):
     """
