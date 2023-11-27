@@ -234,8 +234,7 @@ def obtener_nueva_posicion(posicion_jugador: tuple, movimiento: str) -> tuple:
     """
 
     direccion = MOVIMIENTOS.get(movimiento)
-    nueva_posicion = (posicion_jugador + direccion)
-    nueva_posicion = tuple(nueva_posicion)
+    nueva_posicion = sum(direccion, posicion_jugador)
     return nueva_posicion
 
 
