@@ -224,7 +224,7 @@ def pedir_movimiento(mapa: list) -> str:
     return movimiento
 
 
-def obtener_nueva_posicion(posicion_jugador: tuple, movimiento: str) -> tuple:
+def obtener_nueva_posicion(posicion_jugador: str, movimiento: str) -> tuple:
     """
     Realiza el movimiento del jugador y devuelve la nueva posición.
 
@@ -234,6 +234,7 @@ def obtener_nueva_posicion(posicion_jugador: tuple, movimiento: str) -> tuple:
     """
 
     direccion = MOVIMIENTOS.get(movimiento)
+    
     nueva_posicion = sum(direccion, posicion_jugador)
     return nueva_posicion
 
